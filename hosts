@@ -1,9 +1,9 @@
 [Ubuntu]
-
+65.2.3.197
 
 [Redhat]
 
-
+65.2.3.187
 [SpringBoot]
-Ubuntu=
-Redhat= 
+Ubuntu= 65.2.3.197
+Redhat= 65.2.3.187
