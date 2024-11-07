@@ -10,9 +10,11 @@
 
     - name: Installing java on Ubuntu and Redhat
       ansible.builtin.package:
-        name: '{{java_package}}'
+        name: 
+        - '{{java_package}}'
+        -  '{{java_package}}'
         state: '{{java_state}}'
-        
+
     - name: adding additional information
       ansible.builtin.debug:
         msg:  java package '{{java_package}}' is downloading
