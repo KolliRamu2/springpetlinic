@@ -10,8 +10,7 @@
 
     - name: Installing java on Ubuntu and Redhat
       ansible.builtin.package:
-        name: 
-        - '{{java_package}}'
+        name: '{{java_package}}'
         state: '{{java_state}}'
 
     - name: adding additional information
