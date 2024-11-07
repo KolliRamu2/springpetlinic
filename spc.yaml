@@ -1,0 +1,62 @@
+---
+- name: spc improved version 
+  hosts: SpringBoot
+  become: yes
+  tasks:
+    - name: This application run on only ubuntu and Redhat
+      ansible.builtin.fail:
+        msg: This application run on only ubuntu and Redhat
+      when: ansible_facts['distribution'] != "Ubuntu" and  ansible_facts['distribution'] != "RedHat"
+
+    - name: Installing java on Ubuntu and Redhat
+      ansible.builtin.package:
+        name: '{{java_package}}'
+        state: '{{java_state}}'
+      ansible.builtin.debug:
+        msg:  java package '{{java_package}}' is downloading
+        verbosity: -v
+         
+    - name: add new user on Ubuntu
+      ansible.builtin.user:
+        create_home: yes
+        home: '{{home_dir}}'
+        name: '{{user_name}}'
+        password: '{{user_password}}'
+        shell : '{{shell}}'
+      ansible.builtin.debug:
+        msg: new user '{{user_name}}' is creating
+        verbosity: -v
+
+    - name: downloading application
+      ansible.builtin.get_url:
+        url: '{{ application_url}}'
+        dest: '{{destination}}'
+        owner: '{{owner}}'
+      ansible.builtin.debug:
+        msg:  application '{{application_url}}' is downloading
+        verbosity: -v
+
+    - name: copy the spc.service in to remote nodes
+      ansible.builtin.template:
+        src: spc.service.j2
+        dest: /usr/lib/systemd/system/'{{service_name}}'.service
+      ansible.builtin.debug:
+        msg: copying the .service '{{service_name}}' from control node
+        verbosity: -v
+    
+    - name: daemon reload enable and start the spc.service
+      ansible.builtin.systemd_service:
+        name: '{{service_name}}.service'
+        daemon_reload : yes 
+        enabled: yes
+        state : started
+      ansible.builtin.debug:
+        msg: '{{service_name}} is reloading enable and starting'
+        verbosity: -v
+
+        
+
+    
+      
+
+    

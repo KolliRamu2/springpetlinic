@@ -1,0 +1,16 @@
+# java state variables
+java_state: present
+# User variables variables
+home_dir: /var/lib/spc
+user_name: spc
+user_password: spc
+shell: /bin/sh
+# Downloading application variables
+application_url: https://referenceappslt.s3.ap-south-1.amazonaws.com/spring-petclinic-3.3.0-SNAPSHOT.jar
+destination: /var/lib/spc
+owner: spc
+# Copy the application variables
+service_name: spc
+jar_file: spring-petclinic-3.3.0-SNAPSHOT.jar
+
+
