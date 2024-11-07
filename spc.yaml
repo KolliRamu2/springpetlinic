@@ -12,6 +12,7 @@
       ansible.builtin.package:
         name: '{{java_package}}'
         state: '{{java_state}}'
+        
     - name: adding additional information
       ansible.builtin.debug:
         msg:  java package '{{java_package}}' is downloading
