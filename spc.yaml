@@ -12,6 +12,7 @@
       ansible.builtin.package:
         name: '{{java_package}}'
         state: '{{java_state}}'
+    - name: adding additional information
       ansible.builtin.debug:
         msg:  java package '{{java_package}}' is downloading
         verbosity: -v
@@ -23,6 +24,7 @@
         name: '{{user_name}}'
         password: '{{user_password}}'
         shell : '{{shell}}'
+    - name: adding additional information
       ansible.builtin.debug:
         msg: new user '{{user_name}}' is creating
         verbosity: -v
@@ -32,6 +34,7 @@
         url: '{{ application_url}}'
         dest: '{{destination}}'
         owner: '{{owner}}'
+    - name: adding additional information
       ansible.builtin.debug:
         msg:  application '{{application_url}}' is downloading
         verbosity: -v
@@ -40,6 +43,7 @@
       ansible.builtin.template:
         src: spc.service.j2
         dest: /usr/lib/systemd/system/'{{service_name}}'.service
+    - name: adding additional information
       ansible.builtin.debug:
         msg: copying the .service '{{service_name}}' from control node
         verbosity: -v
@@ -50,6 +54,7 @@
         daemon_reload : yes 
         enabled: yes
         state : started
+    - name: adding additional information
       ansible.builtin.debug:
         msg: '{{service_name}} is reloading enable and starting'
         verbosity: -v
