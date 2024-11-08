@@ -3,7 +3,7 @@
   hosts: SpringBoot
   become: yes
   tasks:
-    - name: This application run on only ubuntu and Redhat
+    - name: Fail if unsupported OS
       ansible.builtin.fail:
         msg: This application run on only ubuntu and Redhat
       when: ansible_facts['distribution'] != "Ubuntu" and  ansible_facts['distribution'] != "RedHat"
