@@ -43,7 +43,7 @@
     - name: copy the spc.service in to remote nodes
       ansible.builtin.template:
         src: spc.service.j2
-        dest: /usr/lib/systemd/system/'{{service_name}}.service'
+        dest: /usr/lib/systemd/system/'{{service_name}}'.service
     - name: Status of copying.service file 
       ansible.builtin.debug:
         msg: copying the .service '{{service_name}}' from control node
