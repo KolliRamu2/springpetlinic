@@ -15,7 +15,7 @@
 
     - name: Status of  Java Package installation
       ansible.builtin.debug:
-        msg:  java package '{{java_package}}' is downloaded
+        msg:  'java package {{java_package}} is downloaded'
         verbosity: 1
          
     - name: add new user on Ubuntu
@@ -27,7 +27,7 @@
         shell : '{{shell}}'
     - name: Status of user creation
       ansible.builtin.debug:
-        msg: new user '{{user_name}}' is created
+        msg: 'new user {{user_name}} is created'
         verbosity: 1
 
     - name: downloading application
@@ -37,7 +37,7 @@
         owner: '{{owner}}'
     - name: Status of application downloading
       ansible.builtin.debug:
-        msg:  application '{{application_url}}' is downloaded
+        msg:  'application {{application_url}} is downloaded'
         verbosity: 1
 
     - name: copy the spc.service in to remote nodes
@@ -46,7 +46,7 @@
         dest: '/usr/lib/systemd/system/{{service_name}}.service'
     - name: Status of copying.service file 
       ansible.builtin.debug: 
-        msg: copying the .service '{{service_name}}' from control node
+        msg: 'copying the .service {{service_name}} from control node'
         verbosity: 1
     
     - name: daemon reload enable and start the spc.service
