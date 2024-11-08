@@ -15,7 +15,7 @@
 
     - name: Status of  Java Package installation
       ansible.builtin.debug:
-        msg:  java package '{{java_package}}' is downloading
+        msg:  java package '{{java_package}}' is downloaded
         verbosity: 1
          
     - name: add new user on Ubuntu
