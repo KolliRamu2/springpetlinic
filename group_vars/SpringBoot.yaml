@@ -11,6 +11,7 @@ destination: /var/lib/spc
 owner: spc
 # Copy the application variables
 service_name: spc
-jar_file: spring-petclinic-3.3.0-SNAPSHOT.jar
+jar_file: /spring-petclinic-3.3.0-SNAPSHOT.jar
+
 
 
