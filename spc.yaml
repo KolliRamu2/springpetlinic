@@ -51,7 +51,7 @@
     
     - name: daemon reload enable and start the spc.service
       ansible.builtin.systemd_service:
-        name: '{{service_name}}.service'
+        name: '{{service_name}}'
         daemon_reload : yes 
         enabled: yes
         state : started
