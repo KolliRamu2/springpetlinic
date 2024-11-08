@@ -5,9 +5,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-PIDFile='/run/{{jar_file}}.pid'
-ExecStart='/usr/bin/java -jar {{home_dir}}{{jar_file}} daemon on; master_process on;'
-ExecStop=-'/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/{{jar_file}}.pid'
+PIDFile=/run/{{jar_file}}.pid
+ExecStart=/usr/bin/java -jar {{home_dir}}{{jar_file}}  'daemon on; master_process on;'
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/{{jar_file}}.pid
 
 TimeoutStopSec=5
 KillMode=mixed
