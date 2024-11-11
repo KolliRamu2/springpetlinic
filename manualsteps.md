@@ -6,7 +6,8 @@
 * sudo -i
 * sudo cd /var/lib/spc/
 * sudo chown spc:spc spring-petclinic-3.3.0-SNAPSHOT.jar
-* sudo vi /usr/lib/systemd/system/spc.service
+* sudo vi /etc/lib/systemd/system/spc.service for custom service
+* sudo vi /usr/lib/systemd/system/spc.service for default service like nginx
 ```
 [Unit]
 Description=Run spring petlinic

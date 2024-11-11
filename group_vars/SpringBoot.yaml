@@ -13,5 +13,6 @@ owner: spc
 service_name: spc
 jar_file: /spring-petclinic-3.3.0-SNAPSHOT.jar
 
+java_package: 'openjdk-17-jdk'
 
 
